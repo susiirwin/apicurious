@@ -1,0 +1,7 @@
+
+<% if current_user %>
+  <h2>Hello, <%= current_user.name %>! Welcome to SusiHub!</h2>
+  <%= link_to "Log out", logout_path %>
+<% else %>
+  <h3><%= link_to "Sign in with Github", github_login_path %></h3>
+<% end %>
