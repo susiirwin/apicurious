@@ -4,7 +4,8 @@ class User < ApplicationRecord
     user.nickname = auth_info.info.nickname
     user.name = auth_info.info.name
     user.token = auth_info.credentials.token
-    user.save
+    # add in the ! so that it will throw an exception if something is wrong
+    user.save!
     user
   end
 end

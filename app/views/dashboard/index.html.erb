@@ -1,0 +1,11 @@
+<h2>Hello, <%= current_user.name %>! Welcome to SusiHub!</h2>
+<%= link_to "Log out", logout_path %>
+
+<h3><%= link_to "See Your Recent Commits", commits_path %>
+  </h3>
+
+<h3>Your Repos</h3>
+<% @repos.each do |repo| %>
+  <%= repo.name %><br />
+  <%= repo.url %><br />
+<% end %>
