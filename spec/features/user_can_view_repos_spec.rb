@@ -12,7 +12,7 @@ describe "user views repos" do
       expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("Your Repos")
 
-      expect(page).to have_content("rush-hour")
+      expect(page).to have_content("Welcome to SusiHub!")
       expect(page).to have_content("https://github.com/bcgoss/rush-hour")
     end
   end

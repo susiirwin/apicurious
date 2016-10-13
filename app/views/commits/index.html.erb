@@ -1,1 +1,7 @@
-<h3>Your Recent Commits</h3>
+<h3>Your Recent Commit History</h3>
+
+<% @commits.each do |commit| %>
+  <li>
+    <%= commit.id %> - <%= commit.type %>
+  </li>
+<% end %>

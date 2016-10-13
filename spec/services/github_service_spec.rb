@@ -24,4 +24,15 @@ describe "GithubService" do
     end
   end
 
+  it "returns all commits" do
+    VCR.use_cassette(".get_commits") do
+      stub_omniauth
+      commits = GithubService.get_commits(nickname, ENV['USER_GITHUB_TOKEN'])
+      commit = commits.first
+
+      expect(commits.count).to eq(30)
+      expect(commits.first[:type]).to eq ("CreateEvent")
+    end
+  end
+
 end

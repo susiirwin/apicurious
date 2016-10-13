@@ -6,6 +6,6 @@
 
 <h3>Your Repos</h3>
 <% @repos.each do |repo| %>
-  <%= repo.name %><br />
-  <%= repo.url %><br />
+  <li><%= repo.name %> - <%= repo.url %></li>
+
 <% end %>
