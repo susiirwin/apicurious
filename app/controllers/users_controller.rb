@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @repos = Repo.find_all(current_user)
+    @githubuser = GithubUser.find_user(current_user)
   end
 
 end

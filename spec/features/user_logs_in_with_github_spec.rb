@@ -8,7 +8,7 @@ describe "UserLogsInWithGithub" do
       stub_omniauth
       click_link "Login with Github"
       expect(current_path).to eq(user_path(User.last))
-      expect(page).to have_content("natasha")
+      expect(page).to have_content("Susi Irwin")
       expect(page).to have_link("Log out")
     end
   end

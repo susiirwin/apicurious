@@ -9,8 +9,9 @@ describe "user views see profile" do
       click_link "Login with Github"
 
       expect(current_path).to eq(user_path(User.last))
-      expect(page).to have_content("natasha")
-      expect(page).to have_content("NatashaTheRobot")
+      expect(page).to have_content("Susi Irwin")
+      expect(page).to have_content("susiirwin")
+      expect(page).to have_content("Bio:")
 
 
 
