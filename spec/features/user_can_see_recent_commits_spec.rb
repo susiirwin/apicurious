@@ -8,7 +8,7 @@ describe "user views recent commits" do
       stub_omniauth
       click_link "Login with Github"
 
-      expect(current_path).to eq(dashboard_index_path)
+      expect(current_path).to eq(user_path(User.last))
       click_link "See Your Recent Commits"
       expect(current_path).to eq(commits_path)
       expect(page).to have_content("Your Recent Commit History")

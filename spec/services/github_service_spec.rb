@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe "GithubService" do
-  xit "returns basic information about account" do
+  it "returns basic information about account" do
     VCR.use_cassette(".find_user") do
-      github_user = GithubService.find_user(:uid)
+
+      github_user = GithubService.get_user(uid)
 
       expect(github_user[:name]).to eq("Susi Irwin")
       expect(github_user[:bio]).to eq("Student at The Turing School of Software and Design")
@@ -26,7 +27,6 @@ describe "GithubService" do
 
   it "returns all commits" do
     VCR.use_cassette(".get_commits") do
-      stub_omniauth
       commits = GithubService.get_commits(nickname, ENV['USER_GITHUB_TOKEN'])
       commit = commits.first
 

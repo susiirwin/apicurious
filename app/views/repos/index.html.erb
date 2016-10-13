@@ -1,0 +1,7 @@
+<div class="container">
+  <h3>Your Repos</h3>
+  <% @repos.each do |repo| %>
+  <li><%= repo.name %> - <%= repo.url %> <%= link_to "Open in GitHub", repo.url  %></li>
+
+  <% end %>
+</div>

@@ -9,10 +9,11 @@ describe "user views repos" do
       stub_omniauth
       click_link "Login with Github"
 
-      expect(current_path).to eq(dashboard_index_path)
-      expect(page).to have_content("Your Repos")
-
+      expect(current_path).to eq(user_path(User.last))
       expect(page).to have_content("Welcome to SusiHub!")
+      click_link "View Your Repos"
+      expect(current_path).to eq(repos_path)
+
       expect(page).to have_content("https://github.com/bcgoss/rush-hour")
     end
   end

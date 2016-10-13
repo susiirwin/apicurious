@@ -10,4 +10,9 @@ class GithubService
     raw_commits = JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.get_user(uid)
+    response = Faraday.get("https://api.github.com/user?access_token=#{token}")
+    raw_users = JSON.parse(response.body, symbolize_names: true)
+  end
+
 end
