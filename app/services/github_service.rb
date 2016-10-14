@@ -6,7 +6,11 @@ class GithubService
   end
 
   def self.get_commits(nickname, token)
-    response = Faraday.get("https://api.github.com/users/#{nickname}/events?access_token=#{token}")
+    conn = Faraday.new("https://api.github.com")
+    response = conn.get do |faraday|
+      faraday.url("/users/#{nickname}/events")
+      faraday.params[:access_token] = token
+    end
     raw_commits = JSON.parse(response.body, symbolize_names: true)
   end
 

@@ -6,9 +6,12 @@ describe "GithubService" do
 
       github_user = GithubService.get_user(uid)
 
-      expect(github_user[:name]).to eq("Susi Irwin")
-      expect(github_user[:bio]).to eq("Student at The Turing School of Software and Design")
-      expect(github_user[:login]).to eq("susiirwin")
+      expect(github_user).to have_key(:name)
+      expect(github_user).to have_key(:bio)
+      expect(github_user).to have_key(:login)
+      expect(github_user[:name].class).to eq(string)
+      expect(github_user[:bio].class).to eq(string)
+      expect(github_user[:login].class).to eq(string)
     end
   end
 
@@ -20,8 +23,8 @@ describe "GithubService" do
       expect(repos.count).to eq(30)
       expect(repos.class).to eq(Array)
       expect(repo.class).to eq(Hash)
-      expect(repo[:name]).to eq("rush-hour")
-      expect(repo[:html_url]).to eq("https://github.com/bcgoss/rush-hour")
+      expect(repo[:name].class).to eq(string)
+      expect(repo[:html_url].class).to eq(string)
     end
   end
 
